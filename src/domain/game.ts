@@ -7,14 +7,14 @@ export class Game {
   turn = 1;
   totalTurns = 400;
   tiles: Array<Tile> = [];
-  cities = new Map<string, City>();
+  cities: Array<City> = [];
   units = new Map<string, IUnit>();
 
   constructor() {
     this.generateTiles();
     const civ = new Civ("fr", "french");
-    const city = new City(civ, "Paris");
-    this.cities.set(city.id, city);
+    const city = new City(civ, "Paris", [5, 5]);
+    this.cities.push(city);
   }
 
   nextTurn() {
@@ -25,12 +25,15 @@ export class Game {
     this.turn++;
   }
 
-  private generateTiles() {
-    this.tiles = [
-      new Tile("grassland", [1, 1]),
-      new Tile("grassland", [1, 2]),
-      new Tile("grassland", [2, 1]),
-      new Tile("grassland", [2, 2]),
-    ];
+  generateTiles() {
+    const rowCount = 15;
+    const colCount = 15;
+    for (let row = 0; row < rowCount; row++) {
+      for (let col = 0; col < colCount; col++) {
+        if (row % 2 === col % 2) {
+          this.tiles.push(new Tile("grassland1", [row, col]));
+        }
+      }
+    }
   }
 }

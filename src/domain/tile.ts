@@ -1,9 +1,11 @@
 export class Tile {
-  type: string;
+  type: TileType;
   location: number[];
 
-  constructor(type: string, location: number[]) {
+  constructor(type: TileType, location: number[]) {
     this.type = type;
     this.location = location;
   }
 }
+
+export type TileType = "grassland1";

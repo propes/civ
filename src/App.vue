@@ -10,11 +10,9 @@ const game = reactive(new Game());
 <template>
   <div class="container">
     <div class="main">
-      <div class="main-header">
-        <h1>Welcome to this civ game</h1>
-      </div>
+      <div class="main-header"></div>
       <div class="main-viewer">
-        <GameViewer />
+        <GameViewer :tiles="game.tiles" :cities="game.cities" />
       </div>
     </div>
     <div class="sidebar">
@@ -44,8 +42,6 @@ const game = reactive(new Game());
 
 .main-viewer {
   grid-row: 2;
-  align-self: center;
-  justify-self: center;
 }
 
 .sidebar {

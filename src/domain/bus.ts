@@ -6,6 +6,6 @@ export interface IBus {
 
 export class Bus implements IBus {
   publish(event: IEvent) {
-    console.log(`Event published: ${event.name} with data: ${event.data}`);
+    console.log(`Event published: ${event.name} with data:`, event.data);
   }
 }

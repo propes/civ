@@ -20,12 +20,12 @@ export class City {
     { row: 1, col: 1, food: 2, production: 2, trade: 1 },
   ];
 
-  constructor(civ: Civ, name: string) {
-    this.id = `${civ.abbrev}}-${name}`;
+  constructor(civ: Civ, name: string, location: number[]) {
+    this.id = `${civ.abbrev}-${name}`;
     this.civ = civ;
     this.name = name;
     this.population = 1;
-    this.location = [1, 1];
+    this.location = location;
     this.foodStore = new FoodStore(this);
     this.buildQueue = new BuildQueue(this);
   }
